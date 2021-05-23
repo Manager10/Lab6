@@ -73,7 +73,23 @@ public class MainFrame extends JFrame {
         resumeMenuItem.setEnabled(false);
 
 
+        JMenu speedMenu = new JMenu("Скорость");
+        Action speedUp = new AbstractAction("Ускорить движение") {
+            public void actionPerformed(ActionEvent event) {
+                field.speedUp();
+            }
+        };
+        speedMenuItem = speedMenu.add(speedUp);
+        speedMenuItem.setEnabled(true);
 
+        Action speedDown = new AbstractAction("Замедлить движение") {
+            public void actionPerformed(ActionEvent event) {
+                field.speedDown();
+            }
+        };
+        speedMenuItem = speedMenu.add(speedDown);
+        speedMenuItem.setEnabled(true);
+        menuBar.add(speedMenu);
 
 // Добавить в центр граничной компоновки поле Field
         getContentPane().add(field, BorderLayout.CENTER);

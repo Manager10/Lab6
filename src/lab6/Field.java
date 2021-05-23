@@ -73,6 +73,67 @@ import javax.swing.Timer;
             }
         }
 
+        public void speedUp(){
+            for(BouncingBall ball: balls)
+            {
+                if (ball.getSpeedX() >= 0 && ball.getSpeedY() >= 0){
+                    ball.setSpeedX(ball.getSpeedX() + 1);
+                    ball.setSpeedY(ball.getSpeedY() + 1);
+                }
+                else
+                    if (ball.getSpeedX() <= 0 && ball.getSpeedY() >= 0){
+                        ball.setSpeedX(ball.getSpeedX() - 1);
+                        ball.setSpeedY(ball.getSpeedY() + 1);
+                    }
+                else
+                    if (ball.getSpeedX() >= 0 && ball.getSpeedY() <= 0){
+                        ball.setSpeedX(ball.getSpeedX() + 1);
+                        ball.setSpeedY(ball.getSpeedY() - 1);
+                    }
+                else
+                    if (ball.getSpeedX() <= 0 && ball.getSpeedY() <= 0){
+                        ball.setSpeedX(ball.getSpeedX() - 1);
+                        ball.setSpeedY(ball.getSpeedY() - 1);
+                    }
+            }
+        }
 
+        public void speedDown(){
+
+            for(BouncingBall ball: balls)
+            {
+                ball.setSpeedX((int)ball.getSpeedX());
+                ball.setSpeedY((int)ball.getSpeedY());
+                if (ball.getSpeedX() == 0)
+                    ball.setSpeedY(0);
+                if (ball.getSpeedX() > 0 && ball.getSpeedY() > 0){
+                    ball.setSpeedX(ball.getSpeedX() - 1);
+                    ball.setSpeedY(ball.getSpeedY() - 1);
+                }
+                if (ball.getSpeedX() < 0 && ball.getSpeedY() > 0){
+                    ball.setSpeedX(ball.getSpeedX() + 1);
+                    ball.setSpeedY(ball.getSpeedY() - 1);
+
+                }
+                if (ball.getSpeedX() > 0 && ball.getSpeedY() < 0){
+                    ball.setSpeedX(ball.getSpeedX() - 1);
+                    ball.setSpeedY(ball.getSpeedY() + 1);
+
+                }
+                if (ball.getSpeedX() < 0 && ball.getSpeedY() < 0){
+                    ball.setSpeedX(ball.getSpeedX() + 1);
+                    ball.setSpeedY(ball.getSpeedY() + 1);
+                }
+
+                if (ball.getSpeedX() == 0 && ball.getSpeedY() > 0)
+                    ball.setSpeedY(ball.getSpeedY() - 1);
+                if (ball.getSpeedX() == 0 && ball.getSpeedY() < 0)
+                    ball.setSpeedY(ball.getSpeedY() + 1);
+                if (ball.getSpeedY() == 0 && ball.getSpeedX() > 0)
+                    ball.setSpeedX(ball.getSpeedX() - 1);
+                if (ball.getSpeedY() == 0 && ball.getSpeedX() < 0)
+                    ball.setSpeedX(ball.getSpeedX() + 1);
+
+            }
         }
     }

@@ -55,6 +55,14 @@ public class BouncingBall implements Runnable {
         thisThread.start();
     }
 
+    public void setSpeedX(double speedX){ this.speedX = speedX; }
+
+    public void setSpeedY(double speedY){ this.speedY = speedY; }
+
+    public double getSpeedX() { return speedX; }
+
+    public double getSpeedY() { return speedY; }
+
     // Метод run() исполняется внутри потока. Когда он завершает работу,
 // то завершается и поток
     public void run() {
